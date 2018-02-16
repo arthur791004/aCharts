@@ -1,7 +1,30 @@
 import React, { PureComponent } from 'react';
 import d3 from '@/utils/d3';
+import getDataPoint from '@/utils/getDataPoint';
 
 class Area extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    const { selectX } = props;
+
+    this.bisectX = d3.bisector(selectX).left;
+  }
+
+  handleTooltip = ({ xScale, yScale }) => (event) => {
+    const { data, selectX, selectY, showTooltip } = this.props;
+    const point = getDataPoint({
+      event,
+      data,
+      selectX,
+      selectY,
+      xScale,
+      yScale,
+    });
+
+    return showTooltip(point);
+  }
+
   render() {
     const {
       width,
@@ -11,6 +34,7 @@ class Area extends PureComponent {
       selectX,
       selectY,
       baseValue,
+      handleMouseMove,
     } = this.props;
 
     const xScale = d3.scaleTime()
@@ -31,6 +55,7 @@ class Area extends PureComponent {
       <path
         {...styles}
         d={area(data)}
+        onMouseMove={this.handleTooltip({ xScale, yScale })}
       />
     )
   }
