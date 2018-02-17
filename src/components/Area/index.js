@@ -11,8 +11,16 @@ class Area extends PureComponent {
     this.bisectX = d3.bisector(selectX).left;
   }
 
-  handleTooltip = ({ xScale, yScale }) => (event) => {
-    const { data, selectX, selectY, showTooltip } = this.props;
+  handleTooltip = (event) => {
+    const {
+      data,
+      xScale,
+      yScale,
+      selectX,
+      selectY,
+      showTooltip,
+    } = this.props;
+
     const point = getDataPoint({
       event,
       data,
@@ -31,18 +39,13 @@ class Area extends PureComponent {
       height,
       styles,
       data,
+      xScale,
+      yScale,
       selectX,
       selectY,
       baseValue,
       handleMouseMove,
     } = this.props;
-
-    const xScale = d3.scaleTime()
-      .domain(d3.extent(data, selectX))
-      .range([0, width]);
-    const yScale = d3.scaleLinear()
-      .domain(d3.extent(data, selectY))
-      .range([height, 0]);
 
     const selectScaledX = datum => xScale(selectX(datum));
     const selectScaledY = datum => yScale(selectY(datum));
@@ -55,7 +58,7 @@ class Area extends PureComponent {
       <path
         {...styles}
         d={area(data)}
-        onMouseMove={this.handleTooltip({ xScale, yScale })}
+        onMouseMove={this.handleTooltip}
       />
     )
   }
