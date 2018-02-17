@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import shortid from 'shortid';
 import { temperatureData as data } from '@/constants';
 import d3 from '@/utils/d3';
+import SVG from '@/components/SVG';
 import Axis from '@/components/Axis';
 import Area from '@/components/Area';
 import ClipPath from '@/components/ClipPath';
@@ -60,9 +61,10 @@ class App extends PureComponent {
     return (
       <Fragment>
         <h1>aCharts</h1>
-        <svg
-          width={width + margin.left + margin.right}
-          height={height + margin.top + margin.bottom}
+        <SVG
+          width={width}
+          height={height}
+          margin={margin}
         >
           <Axis axis={xAxis} style={{ transform: `translateY(${height}px)` }} />
           <Axis axis={yAxis} />
@@ -129,7 +131,7 @@ class App extends PureComponent {
             />
           </Fragment>
           <Tooltip point={tooltipPoint} />
-        </svg>
+        </SVG>
       </Fragment>
     );
   }
