@@ -3,6 +3,7 @@ import { area } from 'd3-shape';
 import { extent, bisector } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { select } from 'd3-selection';
+import { zoom } from 'd3-zoom';
 
 const d3 = {
   /* scale */
@@ -18,6 +19,8 @@ const d3 = {
   axisLeft,
   /* selection */
   select,
+  /* zoom */
+  zoom,
 };
 
 export default d3;
