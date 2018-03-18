@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import GraphLayer from '@/components/GraphLayer';
 
 const ZoomRect = styled.rect`
   width: ${props => props.width}px;
@@ -9,18 +8,20 @@ const ZoomRect = styled.rect`
   pointer-events: all;
 `;
 
-const ZoomAnchor = ({
+const EventFoucs = ({
   width,
   height,
   handleZoom,
+  handleTooltip,
 }) => {
   return (
     <ZoomRect
       width={width}
       height={height}
       innerRef={handleZoom}
+      onMouseMove={handleTooltip}
     />
   );
 }
 
-export default ZoomAnchor;
+export default EventFoucs;

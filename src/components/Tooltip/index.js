@@ -3,6 +3,8 @@ import React from 'react';
 const ToolTip = ({
   radius = 2,
   point,
+  xSelector,
+  ySelectors,
 }) => {
   if (!point) {
     return null;

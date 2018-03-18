@@ -1,67 +1,39 @@
 import React, { PureComponent } from 'react';
 import d3 from '@/utils/d3';
-import getDataPoint from '@/utils/getDataPoint';
+import { withChartsConsumer } from '@/components/Charts/context';
 
-class Area extends PureComponent {
-  constructor(props) {
-    super(props);
+const Area = ({
+  width,
+  height,
+  data,
+  xScale,
+  yScale,
+  xSelector,
+  ySelector,
+  baseValue,
+  color,
+  styles = {},
+}) => {
+  const xScaledSelector = datum => xScale(xSelector(datum));
+  const yScaledSelector = datum => yScale(ySelector(datum));
+  const y0 = typeof baseValue === 'undefined' || baseValue === null
+    ? height
+    : baseValue;
 
-    const { selectX } = props;
+  const area = d3.area()
+    .x(xScaledSelector)
+    .y0(y0)
+    .y1(yScaledSelector);
 
-    this.bisectX = d3.bisector(selectX).left;
-  }
+  return (
+    <path
+      stroke={color}
+      fill={color}
+      fillOpacity={0.6}
+      {...styles}
+      d={area(data)}
+    />
+  )
+};
 
-  handleTooltip = (event) => {
-    const {
-      data,
-      xScale,
-      yScale,
-      selectX,
-      selectY,
-      showTooltip,
-    } = this.props;
-
-    const point = getDataPoint({
-      event,
-      data,
-      selectX,
-      selectY,
-      xScale,
-      yScale,
-    });
-
-    return showTooltip(point);
-  }
-
-  render() {
-    const {
-      width,
-      height,
-      styles,
-      data,
-      xScale,
-      yScale,
-      selectX,
-      selectY,
-      baseValue,
-      handleMouseMove,
-    } = this.props;
-
-    const selectScaledX = datum => xScale(selectX(datum));
-    const selectScaledY = datum => yScale(selectY(datum));
-    const area = d3.area()
-      .x(selectScaledX)
-      .y0(baseValue)
-      .y1(selectScaledY);
-
-    return (
-      <path
-        {...styles}
-        d={area(data)}
-        onMouseMove={this.handleTooltip}
-      />
-    )
-  }
-}
-
-export default Area;
+export default withChartsConsumer(Area);

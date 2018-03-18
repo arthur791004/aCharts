@@ -1,16 +1,9 @@
-import React from 'react';
-import d3 from '@/utils/d3';
+import Axis from './Axis';
+import XAxis from './XAxis';
+import YAxis from './YAxis';
 
-const Axis = ({
-  axis,
-  style,
-}) => {
-  return (
-    <g
-      ref={node => d3.select(node).call(axis)}
-      style={style}
-    />
-  );
+export {
+  Axis,
+  XAxis,
+  YAxis,
 };
-
-export default Axis;
