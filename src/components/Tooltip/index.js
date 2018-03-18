@@ -21,6 +21,7 @@ const ToolTipWrapper = styled.div.attrs({
   white-space: nowrap;
   z-index: 100;
   transition: all 0.3s ease-out;
+  pointer-events: none;
 
   > div + div {
     margin-top: 2px;
