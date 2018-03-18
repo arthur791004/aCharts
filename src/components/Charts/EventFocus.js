@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ZoomRect = styled.rect`
+const Rect = styled.rect`
   width: ${props => props.width}px;
   height: ${props => props.height}px;
   fill: none;
@@ -15,7 +15,7 @@ const EventFoucs = ({
   handleTooltip,
 }) => {
   return (
-    <ZoomRect
+    <Rect
       width={width}
       height={height}
       innerRef={handleZoom}
