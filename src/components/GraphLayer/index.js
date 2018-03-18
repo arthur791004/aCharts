@@ -29,7 +29,15 @@ const GraphLayer = ({
           <rect
             width={boundary.width}
             height={boundary.height}
-          />
+          >
+            <animate
+              attributeName="width"
+              dur="1.5s"
+              from="0"
+              to="100%"
+              fill="freeze"
+            />
+          </rect>
         </ClipPath>
       )}
       <Graph
