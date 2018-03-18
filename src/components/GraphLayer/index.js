@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import shortid from 'shortid';
 import ClipPath from '@/components/ClipPath';
 
-const Graph = styled.g`
-   transform: translate(
-     ${props => props.left || 0}px, ${props => props.top || 0}px
-   );
-`;
+const Graph = styled.g.attrs({
+  style: ({ left, top }) => ({
+    transform: `translate(${left || 0}px, ${top || 0}px)`,
+  }),
+})``;
 
 const GraphLayer = ({
   boundary,

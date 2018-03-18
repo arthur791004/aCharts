@@ -36,9 +36,10 @@ const getEventPoint = (event) => {
     svg = svg.ownerSVGElement;
   }
 
+  const { left, top } = target.getBoundingClientRect();
   const point = {
-    x: clientX,
-    y: clientY,
+    x: clientX - left,
+    y: clientY - top,
   };
 
   return getPointFromSVG(svg, point) || getPointFromNode(svg, point);

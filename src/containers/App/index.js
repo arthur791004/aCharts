@@ -62,15 +62,10 @@ class App extends PureComponent {
               color="#82ca9d"
             />
           </GraphLayer>
-          <ChartsContext.Consumer>
-            {({ currentPoint }) => (
-              <Tooltip
-                point={currentPoint}
-                xSelector={xSelector}
-                ySelectors={ySelectors}
-              />
-            )}
-          </ChartsContext.Consumer>
+          <Tooltip
+            xSelector={xSelector}
+            ySelectors={ySelectors}
+          />
         </Charts>
       </Fragment>
     );

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import d3 from '@/utils/d3';
 import { withChartsConsumer } from '@/components/Charts/context';
 
