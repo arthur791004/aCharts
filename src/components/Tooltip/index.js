@@ -10,8 +10,8 @@ const MOUSE_OFFSET = 10;
 const ToolTipWrapper = styled.div.attrs({
   style: ({ left, top }) => ({
     position: 'absolute',
-    left: left,
-    top: top,
+    left,
+    top,
   }),
 })`
   padding: 10px;
@@ -81,6 +81,6 @@ const ToolTip = ({
       </TooltipPortal>
     </GraphLayer>
   );
-}
+};
 
 export default withChartsConsumer(ToolTip);

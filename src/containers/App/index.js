@@ -1,8 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import { temperatureData as data } from '@/constants';
-import d3 from '@/utils/d3';
 import Charts from '@/components/Charts';
-import ChartsContext from '@/components/Charts/context';
 import GraphLayer from '@/components/GraphLayer';
 import { XAxis, YAxis } from '@/components/Axis';
 import ClipArea from '@/components/Area/ClipArea';
@@ -20,11 +18,9 @@ class App extends PureComponent {
   constructor(props) {
     super(props);
 
-    const { width, height } = props;
-
-    this.selectDay = d => new Date(d.day).setHours(0,0,0,0);
-    this.selectNewYork = d => d['NewYork'];
-    this.selectSanFrancisco = d => d['SanFrancisco'];
+    this.selectDay = d => new Date(d.day).setHours(0, 0, 0, 0);
+    this.selectNewYork = d => d.NewYork;
+    this.selectSanFrancisco = d => d.SanFrancisco;
   }
 
   render() {

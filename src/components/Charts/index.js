@@ -39,8 +39,8 @@ class Charts extends Component {
   }
 
   handleTooltip = (event) => {
-    const { data, xSelector, ySelectors } = this.props;
-    const { xScale, yScale } = this.state;
+    const { data, xSelector } = this.props;
+    const { xScale } = this.state;
     const { clientX, clientY } = event;
 
     const mousePosition = {
@@ -60,7 +60,7 @@ class Charts extends Component {
     });
   }
 
-  handleZoom = node => {
+  handleZoom = (node) => {
     const { width, height } = this.props;
     const onZoom = () => {
       this.setState({

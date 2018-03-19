@@ -9,7 +9,7 @@ const getPointFromSVG = (svg, point) => {
   svgPoint.y = point.y;
 
   return svgPoint.matrixTransform(svg.getScreenCTM().inverse());
-}
+};
 
 const getPointFromNode = (node, point) => {
   const { x, y } = point;
@@ -19,8 +19,8 @@ const getPointFromNode = (node, point) => {
   return {
     x: x - left - clientLeft,
     y: y - top - clientTop,
-  }
-}
+  };
+};
 
 const getEventPoint = (event) => {
   const { target, clientX, clientY } = event;
@@ -43,6 +43,6 @@ const getEventPoint = (event) => {
   };
 
   return getPointFromSVG(svg, point) || getPointFromNode(svg, point);
-}
+};
 
 export default getEventPoint;

@@ -1,7 +1,7 @@
 import React from 'react';
 import createReactContext from 'create-react-context';
 
-const context = {
+const defaultContext = {
   width: null,
   height: null,
   xScale: null,
@@ -10,12 +10,12 @@ const context = {
   currentPoint: null,
 };
 
-const ChartsContext = createReactContext(context);
+const ChartsContext = createReactContext(defaultContext);
 
 export const withChartsConsumer = Component => props => (
   <ChartsContext.Consumer>
     {context => <Component {...context} {...props} />}
   </ChartsContext.Consumer>
-)
+);
 
 export default ChartsContext;

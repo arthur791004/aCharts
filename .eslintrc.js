@@ -1,13 +1,15 @@
 module.exports = {
-  "parser": "babel-eslint",
-  "extends": "@17media/eslint-config-17media/browser",
-  "globals": {
+  parser: 'babel-eslint',
+  extends: '@17media/eslint-config-17media/browser',
+  globals: {
   },
-  "settings": {
-    "import/resolver": {
-      "babel-module": {}
-    }
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+    },
   },
-  "rules": {
+  rules: {
+    'arrow-body-style': 'off',
+    'eol-last': 'off',
   },
 };
