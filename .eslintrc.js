@@ -11,5 +11,6 @@ module.exports = {
   rules: {
     'arrow-body-style': 'off',
     'eol-last': 'off',
+    'react/prop-types': 'off',
   },
 };
