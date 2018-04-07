@@ -12,7 +12,7 @@ const Graph = styled.g.attrs({
 const GraphLayer = ({
   boundary,
   children,
-  ...props,
+  ...props
 }) => {
   let clipPath;
   let clipPathID;

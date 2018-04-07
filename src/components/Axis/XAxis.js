@@ -10,7 +10,7 @@ const XAxis = ({ ticks, xScale, height, style, ...props }) => {
 
   const currentStyle = {
     transform: `translateY(${height}px)`,
-    ...style
+    ...style,
   };
 
   return (

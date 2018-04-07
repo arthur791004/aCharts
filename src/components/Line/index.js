@@ -5,7 +5,6 @@ import { withChartsConsumer } from '@/components/Charts/context';
 const Line = ({
   height,
   data,
-  type,
   xScale,
   xSelector,
   color,
@@ -13,7 +12,7 @@ const Line = ({
   styles = {},
 }) => {
   if (position) {
-    const { x1, x2, y1, y2 } = position;
+    const { x1, x2 } = position;
 
     return (
       <line
@@ -43,7 +42,7 @@ const Line = ({
       {...styles}
       d={line(data)}
     />
-  )
+  );
 };
 
 export default withChartsConsumer(Line);

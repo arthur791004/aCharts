@@ -11,6 +11,6 @@ const ClipPath = ({
       </clipPath>
     </defs>
   );
-}
+};
 
 export default ClipPath;

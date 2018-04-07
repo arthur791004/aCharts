@@ -8,7 +8,7 @@ const Rect = styled.rect`
   pointer-events: all;
 `;
 
-const EventFoucs = ({
+const EventFocus = ({
   width,
   height,
   handleZoom,
@@ -22,6 +22,6 @@ const EventFoucs = ({
       onMouseMove={handleTooltip}
     />
   );
-}
+};
 
-export default EventFoucs;
+export default EventFocus;

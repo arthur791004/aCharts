@@ -3,7 +3,6 @@ import d3 from '@/utils/d3';
 import { withChartsConsumer } from '@/components/Charts/context';
 
 const Area = ({
-  width,
   height,
   data,
   xScale,
@@ -33,7 +32,7 @@ const Area = ({
       {...styles}
       d={area(data)}
     />
-  )
+  );
 };
 
 export default withChartsConsumer(Area);
